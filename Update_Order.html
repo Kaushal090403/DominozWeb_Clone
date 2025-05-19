@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Update Order - Dominozz Pizza{% endblock %}
+
+{% block content %}
+<section class="container mx-auto p-8 bg-white rounded-md shadow-md mt-10">
+    <header class="mb-6 text-center">
+        <h1 class="text-4xl font-bold text-blue-600">Update Your Order</h1>
+        <p class="text-gray-600 mt-2">Make changes to your pizza order below.</p>
+    </header>
+
+    <main class="flex justify-center">
+        <form method="post" class="w-full max-w-lg space-y-6">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="flex justify-between">
+                <button type="submit" class="bg-blue-600 text-white py-2 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition">Update Order</button>
+                <a href="{% url 'My_Order' %}" class="bg-gray-200 text-gray-800 py-2 px-8 rounded-lg shadow-lg hover:bg-gray-300 transition">Cancel</a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="mt-8 text-center text-gray-500">
+        <p>&copy; 2024 Dominozz Pizza. All rights reserved.</p>
+    </footer>
+</section>
+{% endblock %}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dominozz Pizza{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 240 10% 3.9%;
+                --card: 0 0% 100%;
+                --card-foreground: 240 10% 3.9%;
+                --popover: 0 0% 100%;
+                --popover-foreground: 240 10% 3.9%;
+                --primary: 240 5.9% 10%;
+                --primary-foreground: 0 0% 98%;
+                --secondary: 240 4.8% 95.9%;
+                --secondary-foreground: 240 5.9% 10%;
+                --muted: 240 4.8% 95.9%;
+                --muted-foreground: 240 3.8% 46.1%;
+                --accent: 240 4.8% 95.9%;
+                --accent-foreground: 240 5.9% 10%;
+                --destructive: 0 84.2% 60.2%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 5.9% 90%;
+                --input: 240 5.9% 90%;
+                --ring: 240 5.9% 10%;
+                --radius: 0.5rem;
+            }
+            .dark {
+                --background: 240 10% 3.9%;
+                --foreground: 0 0% 98%;
+                --card: 240 10% 3.9%;
+                --card-foreground: 0 0% 98%;
+                --popover: 240 10% 3.9%;
+                --popover-foreground: 0 0% 98%;
+                --primary: 0 0% 98%;
+                --primary-foreground: 240 5.9% 10%;
+                --secondary: 240 3.7% 15.9%;
+                --secondary-foreground: 0 0% 98%;
+                --muted: 240 3.7% 15.9%;
+                --muted-foreground: 240 5% 64.9%;
+                --accent: 240 3.7% 15.9%;
+                --accent-foreground: 0 0% 98%;
+                --destructive: 0 62.8% 30.6%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 3.7% 15.9%;
+                --input: 240 3.7% 15.9%;
+                --ring: 240 4.9% 83.9%;
+            }
+            /* Add this CSS for the background image and default text color */
+            body {
+                background-image: url('/static/images/dominozz.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                color: black; /* Default text color */
+            }
+            /* Ensure all links and text inside specific elements are also black */
+            a {
+                color: black;
+            }
+            p, h1, h2, h3, h4, h5, h6, li {
+                color: black;
+            }
+            /* Navbar specific text color */
+            .navbar {
+                color: white;
+            }
+            .navbar a {
+                color: white;
+            }
+        }
+        /* Custom CSS to ensure input text is black */
+            /* Custom CSS to ensure input text is black */
+/* Ensure input text color is black */
+input[type="text"],
+input[type="email"],
+textarea {
+    color: black;
+    border: 1px solid black;
+    padding: 0.5rem; /* Optional: add padding for better appearance */
+}
+
+/* Add styling for form elements */
+form input,
+form textarea {
+    background-color: white; /* Ensures form fields have a white background */
+    border-radius: 0.25rem; /* Optional: rounded corners */
+}
+
+button[type="submit"] {
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 0.5rem 1rem; /* Add padding */
+    border-radius: 0.25rem; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Optional: Styling for hover effect */
+button[type="submit"]:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+
+
+    </style>
+</head>
+<body class="bg-background text-primary-foreground min-h-screen flex flex-col">
+    <nav class="navbar bg-primary p-4 flex justify-between items-center">
+        <a href="{% url 'home' %}">
+            <img src="https://placehold.co/150" alt="Dominozz Pizza Logo" class="h-12" />
+        </a>
+        <ul class="flex space-x-4">
+            <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+            <li><a href="{% url 'Order' %}" class="hover:underline">Order</a></li>
+            <li><a href="{% url 'My_Order' %}" class="hover:underline">My Order</a></li>
+            <li><a href="{% url 'Price' %}" class="hover:underline">Billings</a></li>
+            <li><a href="{% url 'Contact' %}" class="hover:underline">Contact</a></li>
+            <li><a href="{% url 'About' %}" class="hover:underline">About</a></li>
+            <li><a href="{% url 'locate' %}" class="hover:underline">Location</a></li>
+        </ul>
+    </nav>
+
+    <main class="flex-1">
+        {% block content %} {% endblock %}
+    </main>
+
+    <footer class="bg-primary text-primary-foreground p-4 text-center">
+        <p>&copy; 2024 Dominozz Pizza. All rights reserved.</p>
+    </footer>
+</body>
+</html>
